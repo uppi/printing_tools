@@ -86,9 +86,7 @@ class UnixPrinter(object):
         popen_args.append(filename)
         if IS_UNIT_TEST:
             return popen_args
-        popen = subprocess.Popen(popen_args, stdin=subprocess.PIPE)
-        popen.communicate(text)
-        p.stdin.close()
+        popen = subprocess.Popen(popen_args)
         
     def print_text(self, text, printer_name=None):
         popen_args = ['lpr']
@@ -98,7 +96,7 @@ class UnixPrinter(object):
             return popen_args
         popen = subprocess.Popen(popen_args, stdin=subprocess.PIPE)
         popen.communicate(text)
-        p.stdin.close()
+        popen.stdin.close()
 
 print_engine = None
 if IS_WIN:
