@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import unittest, printing_tools
 printing_tools.IS_UNIT_TEST = True
 
@@ -5,7 +7,7 @@ if printing_tools.IS_WIN:
     class TestWin(unittest.TestCase):
         def test_list(self):
             printers = printing_tools.printers()
-            self.assertIn('Canon MG3500 series Printer', printers)
+            self.assertIn(u'Canon MG3500 series Printer (копия 2)', printers)
 
         def test_print_text(self):
             self.assertEqual(True, printing_tools.print_text("Sample Text"))
